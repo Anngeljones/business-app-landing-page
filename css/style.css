@@ -1,0 +1,585 @@
+/* Basic Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Crucial for responsive layouts */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Or any other font you choose, make sure to link it in HTML head if using Google Fonts */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevents horizontal scrollbar issues on smaller screens */
+}
+
+h1, h2, h3 {
+    color: #333; /* Darker color for headings */
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* A primary blue for links */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Reusable Container for consistent padding/max-width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Makes header stick to top on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures header is above other content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Matches container for consistent width */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #007bff; /* App's primary color */
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px; /* Space between links */
+}
+
+.nav-links a {
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+/* CTA Buttons (reusable class) */
+.cta-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; /* Ensure no underline if used on <a> */
+    display: inline-block; /* For proper padding and margin */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.cta-button.secondary {
+    background-color: #6c757d;
+}
+
+.cta-button.secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Hamburger menu (hidden by default on desktop) */
+.hamburger {
+    display: none; /* Hide on desktop */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #e0f7fa, #bbdefb); /* Light gradient */
+    color: #333;
+    gap: 30px;
+    min-height: 80vh; /* Make hero section take up most of viewport height */
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap on very small screens */
+}
+
+.hero-image img {
+    max-width: 100%; /* Make images fluid */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Features Section */
+.features-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.features-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.feature-item img {
+    width: 60px; /* Adjust icon size */
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.testimonials-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.testimonial-carousel {
+    display: flex; /* Use flexbox for simple carousel/grid */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex: 1 1 45%; /* Allows items to take roughly half width, wrapping as needed */
+    min-width: 300px; /* Minimum width before stacking */
+    text-align: left;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.client-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.client-info h4 {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.client-info span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.pricing-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.pricing-grid {
+    display: flex; /* Use flexbox for pricing plans */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-plan {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1 1 30%; /* Allows plans to take roughly one-third width, wrapping */
+    min-width: 280px; /* Minimum width before stacking */
+    display: flex; /* For internal layout of plan */
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-plan.featured {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 1; /* Bring featured plan slightly forward */
+}
+
+.pricing-plan.featured h3,
+.pricing-plan.featured .price,
+.pricing-plan.featured ul,
+.pricing-plan.featured li {
+    color: #fff;
+}
+
+.pricing-plan .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.pricing-plan .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #777;
+}
+.pricing-plan.featured .price span {
+    color: #e0f7fa; /* Lighter color for featured price sub-text */
+}
+
+.pricing-plan ul {
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1; /* Make list take available space */
+}
+
+.pricing-plan ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* If you add FontAwesome for check/x icons, link it in HTML and then style like this: */
+/* .pricing-plan ul li i {
+    color: green;
+}
+.pricing-plan.featured ul li i {
+    color: #90ee90;
+} */
+
+.pricing-plan .cta-button {
+    margin-top: auto; /* Pushes button to bottom if content varies */
+}
+
+.pricing-plan.featured .cta-button {
+    background-color: #fff;
+    color: #007bff;
+}
+.pricing-plan.featured .cta-button:hover {
+    background-color: #e0f7fa;
+    color: #007bff;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+}
+
+.contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none; /* Remove default outline */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #007bff; /* Primary color */
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    filter: invert(1); /* Makes icons white if they are black. Adjust if your icons are already light. */
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #ccc;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* ==================================== */
+/* Media Queries for Responsiveness    */
+/* ==================================== */
+
+/* Tablet & Smaller Desktops */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column; /* Stack on smaller screens */
+        text-align: center;
+    }
+
+    .hero-content, .hero-image {
+        width: 100%; /* Full width */
+    }
+
+    .hero-image {
+        margin-top: 30px; /* Space between content and image */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on smaller screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* .nav-links.active {
+        display: flex; // This would be controlled by JavaScript for hamburger menu toggle
+    } */
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on smaller screens */
+    }
+
+    .cta-button.nav-cta {
+        display: none; /* Hide desktop CTA button in header on smaller screens */
+    }
+
+    .features-grid, .testimonial-carousel, .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width */
+    }
+
+    .testimonial-item, .pricing-plan {
+        flex: 1 1 80%; /* Allow items to take more width, or stack */
+        max-width: 400px; /* Constrain width */
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem; /* Adjusted for better mobile fit */
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        top: 50px; /* Adjust if header height changes */
+    }
+
+    .footer-content {
+        align-items: center; /* Center items when stacked */
+    }
+
+    .footer-links ul {
+        align-items: center; /* Center links */
+    }
+}
+
+/* Even Smaller Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px; /* Reduce overall padding */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-section {
+        padding: 40px 10px;
+    }
+
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 0 10px;
+    }
+}
